@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>H&M</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<script type="text/javascript" src="scripts/email.js"></script>
+	<link href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" rel="stylesheet" />
+	<link href="css/jquery-mobile.css" type="text/css" rel="stylesheet" />
+	
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/klass.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe.jquery-3.0.5.min.js"></script>
+	
+		
+	
+	<script type="text/javascript">
+		
+		/*
+		 * IMPORTANT!!!
+		 * REMEMBER TO ADD  rel="external"  to your anchor tags. 
+		 * If you don't this will mess with how jQuery Mobile works
+		 */
+		
+		(function(window, $, PhotoSwipe){
+			
+			$(document).ready(function(){
+				
+				$('div.gallery-page')
+					.live('pageshow', function(e){
+						
+						var 
+							currentPage = $(e.target),
+							options = {},
+							photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
+							
+						return true;
+						
+					})
+					
+					.live('pagehide', function(e){
+						
+						var 
+							currentPage = $(e.target),
+							photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+
+						if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+							PhotoSwipe.detatch(photoSwipeInstance);
+						}
+						
+						return true;
+						
+					});
+				
+			});
+		
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+		
+	</script>
+	
+</head>
+<body>
+
+<div data-role="page" class="gallery-page" data-theme="a">
+<div data-role="header" data-theme="a" data-position="fixed" >
+	<img src = "images/header.png" alt = "live" width="100%" height="200px"/>
+	</div><!-- /header -->
+	<div data-role="content"  data-theme="a">		
+		
+		<ul data-role="listview" data-theme="d" data-inset="true">
+		<li><a href="aboutus.html"><img src="images/info.png" /><h3>About Us</h3></a></li> 
+		<li><a href="menu.html"><img src="images/ca.png" /><h3>Menu</h3></a></li> 
+		<li><a href="#callAjaxPage"><img src="images/cal.png" /><h3>Order Now</h3></a></li>  
+			<li><a href="map.html"><img src="images/phone.png" /><h3>Contact Us</h3></a></li> 
+		</ul> 
+
+		</div>
+		
+		<center><P><h2>Mobile BBQ: (850)567-7393</h2></P></center>
+<div data-role="footer" data-theme="a" data-position="fixed">
+	<h1></h1>
+</div>
+	</div>
+      
+
+
+
+
+<div data-role="page"  id="callAjaxPage" class="gallery-page" data-theme="a">
+<script type="text/javascript" src="scripts/email.js"></script>
+<div data-role="header" data-theme="a" data-position="fixed" >
+	<img src = "images/header.png" alt = "live" width="100%" height="200px"/>
+	</div><!-- /header -->
+	<div data-role="content" data-theme="a" data-role="collapsible" data-collapsed-icon="arrow-r">	
+<form id="callAjaxForm1" data-theme="a" data-role="collapsible" data-expanded-icon="arrow-d">
+<h3>H & M Ordering</h3>
+                <div data-role="fieldcontain">
+				<center><TABLE BORDER="0">
+                   <TR>
+                    <TD><label for="firstName">Name</label></TD>
+                   <TD> <input type="text" name="Name" id="Name" value=""  />
+					</TD>
+					<TR>
+					
+					
+					 <TD><label for="date">Date: </label></TD>
+                   <TD> <input type="date" name="date" id="date" value=""  /></TD>
+					</TR>
+					<TR>
+					<TD><label for="time">Time:</label></TD>
+                    <TD><input type="time" name="time" id="time" value=""  /></TD>
+					</TR>
+					<TR>
+					
+					<TD><label for="phone">Phone:</label></TD>
+                   <TD><input type="text" name="phone" id="phone" value=""  /></TD>
+					</TR>
+			
+					
+	
+						</TABLE>	
+						
+						<legend><b>Chicken:<b></legend>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-1">Dark Meat(3pc(w/2sides)):$6.99</label>
+		
+		<label for="qtySide1" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						</fieldset>
+	<fieldset data-role="controlgroup">					
+<input type="checkbox" name="checkbox-2a" id="checkbox-2a" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-2a">Mixed meat(3pc(w/2sides)):$7.99</label>
+			
+<label for="qtySide2" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-3a" id="checkbox-3a" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-3a">White Meat(3pc(w/2 sides)):$8.99</label>
+
+<label for="qtySide3" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-4a" id="checkbox-4a" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-4a">Whole Chicken:$11.99</label>
+
+<label for="qtySide4" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-5a" id="checkbox-5a" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-5a">Chicken Sandwich:$2.99</label>
+
+<label for="qtySide5" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						
+					<legend>Ribs:</legend>	
+					<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-6a" id="checkbox-6a" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-6a">Rib Dinner(3 bnes w/ 2 sides)</label>
+
+<label for="qtySide6" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+					<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-7a" id="checkbox-7a" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-7a">Rib Sandwich:$5.99</label>
+
+<label for="qtySide7" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-8a" id="checkbox-8a" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-8a">Full Slab:$19.99</label>
+
+<label for="qtySide8" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-9" id="checkbox-9a" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-9a">1/2 Slab(meat only):$9.99</label>
+
+<label for="qtySide9" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<legend><b>Pork<b></legend>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-10" id="checkbox-10" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-10">Pulled Pork Sandwich:$4.99</label>
+		
+		<label for="qtySide10" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						</fieldset>
+	<fieldset data-role="controlgroup">					
+<input type="checkbox" name="checkbox-11" id="checkbox-11" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-11">Pulled Pork Dinner (w/ 2 sides):$7.99</label>
+			
+<label for="qtySide11" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-12" id="checkbox-12" class="custom" data-mini="true"  value="Y"/>
+<label for="checkbox-12">Sausage w/ cole slaw($.50):$2.99</label>
+
+<label for="qtySide12" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-13" id="checkbox-13" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-13">Beef Sausage w/ cole slaw($.50):$3.99</label>
+
+<label for="qtySide13" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+					<legend>Combos:</legend>	
+					<fieldset data-role="controlgroup">	
+					<input type="checkbox" name="checkbox-14" id="checkbox-14" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-14">Rib & Chicken Dinner (w/ 2 sides):$10.99</label>
+
+<label for="qtySide14" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+					<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-15" id="checkbox-15" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-15">Rib & Chicken Combo(Meat Only - includes:1/2 slab of Ribs with 2 wings and legs):$14.99</label>
+
+<label for="qtySide15" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						
+						<legend><b>Sides:<b></legend>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-16" id="checkbox-16" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-16">Hungery Man Meal(w/1 side, 1/2 slab of ribs, 2 pcs of chicken:$11.99)</label>
+		
+		<label for="qtySide16" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						</fieldset>
+	<fieldset data-role="controlgroup">					 
+<input type="checkbox" name="checkbox-17" id="checkbox-17" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-17">Rib & Pulled Pork Dinner (w/ 2 sides) and Sweet Tea:$12.99</label>
+			
+<label for="qtySide17" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-18" id="checkbox-18" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-18">Feast fr FOur(includes whole salb,whole chicken, 2 sides and 4 drinks):$35.99</label>
+
+<label for="qtySide18" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+					<legend>Sides:</legend>	
+					<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-19" id="checkbox-19" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-19">Baked Beans:$1.99</label>
+
+<label for="qtySide19" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+					<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-20" id="checkbox-20" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-20">Cole Slaw:$1.99</label>
+
+<label for="qtySide20" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-21" id="checkbox-21" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-21">Mac & Cheese:$2.99</label>
+
+<label for="qtySide21" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-22" id="checkbox-22" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-22">Potato Salad:$2.99</label>
+
+<label for="qtySide22" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-23" id="checkbox-23" class="custom" data-mini="true"value="Y" />
+<label for="checkbox-23">Collard Greens:$.99</label>
+
+<label for="qtySide23" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						
+						
+						<legend>Other:</legend>	
+					<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-24" id="checkbox-24" class="custom" data-mini="true"value="Y"/>
+<label for="checkbox-24">Extra BBQ Sauce:$.99</label>
+
+<label for="qtySide24" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+					<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-25" id="checkbox-25" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-25">Cake:$2.99</label>
+
+<label for="qtySide25" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-26" id="checkbox-26" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-26">Cookies:$1.99</label>
+
+<label for="qtySide26" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-27" id="checkbox-27" class="custom" data-mini="true"value="Y" />
+<label for="checkbox-27">Whole Pound Cake:$20.99</label>
+
+<label for="qtySide27" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-28" id="checkbox-28" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-28">Soft Drinks:$.99</label>
+
+<label for="qtySide28" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-29" id="checkbox-29" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-29">Sweet Tea:$1.79</label>
+
+<label for="qtySide29" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						</center>
+						
+						
+                    <h3 id="notification"></h3>
+                    <button data-theme="b" id="submit" type="submit">Submit</button>
+                </div>
+            </form>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div data-role="content"  data-theme="a" data-role="collapsible" >	
+		
+<form id="callAjaxForm1" data-role="collapsible"  data-theme="a" data-expanded-icon="arrow-d">
+<h3>Catering Order</h3>
+				<center><TABLE BORDER="0" data-role="table" class="ui-responsive" >
+                   <TR>
+                    <TD><label for="firstName">Name</label></TD>
+                   <TD> <input type="text" name="Name" id="Name" value="" data-mini="true" />
+					</TD>
+					<TR>
+					
+					
+					 <TD><label for="date">Date: </label></TD>
+                   <TD> <input type="date" name="date" id="date" value="" data-mini="true" /></TD>
+					</TR>
+					<TR>
+					<TD><label for="time">Time:</label></TD>
+                    <TD><input type="time" name="time" id="time" value="" data-mini="true"  /></TD>
+					</TR>
+					<TR>
+					
+					<TD><label for="phone">Phone:</label></TD>
+                   <TD><input type="text" name="phone" id="phone" value=""data-mini="true"  /></TD>
+					</TR>
+					<TR>
+					
+	<TD><label for="chicken" class="select" data-theme="d" data-mini="true" >Chicken</label></TD>
+					<TD>	<select name="chicken" id="chicken"  data-mini="true" data-theme="d">
+					<option value="None"data-mini="true" >None</option>
+							<option value= "Party of 25-Chicken" data-mini="true">Party of 25:$112.00</option>
+							<option value="Party of 50-Chicken" data-mini="true">Party of 50:$200.00</option>
+							<option value="Party of 75-Chicken" data-mini="true">Party of 75 :$288.00</option>
+							<option value="Party of 100-Chicken" data-mini="true">Party of 100 :$376.00</option>
+						
+						</select>
+
+						</TD>
+					
+						</TR>
+						
+					<TR>
+						
+						<TD>	<label for="rib" class="select" data-theme="d"data-mini="true" >Ribs</label></TD>
+						<TD><select name="rib" id="rib" data-theme="d" data-mini="true">
+						<option value="None" data-mini="true">None</option>
+							<option value="Party of 25-Rib" data-mini="true">Party of 25:$112.00</option>
+							<option value="Party of 50-Rib" data-mini="true">Party of 50:$200.00</option>
+							<option value="Party of 75-Rib" data-mini="true">Party of 75:$288.00</option>
+							<option value="Party of 100-Rib"data-mini="true">Party of 100:$376.00</option>
+						</select></TD>
+						
+					
+						</TR>
+					<TR>
+						
+							<TD><label for="pork" class="select" data-theme="d" data-mini="true">Pork</label></TD>
+						<TD><select name="pork" id="pork" data-theme="d"data-mini="true">
+						<option value="None" data-mini="true">None</option>
+							<option value="Pulled Pork"data-mini="true">Pulled Pork: $10/lb </option>
+							<option value="Sausages" data-mini="true">Sausages: $3.00</option>
+						</select>
+						</TD>
+			
+						</TABLE>
+						<legend><b>Sides:<b></legend>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-40" id="checkbox-40" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-40">Cole Slaw:$20.00</label>
+		
+		<label for="qtySide40" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+						</fieldset>
+	<fieldset data-role="controlgroup">					
+<input type="checkbox" name="checkbox-41" id="checkbox-41" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-41">Macaroni and Cheese:$30.00</label>
+			
+<label for="qtySide41" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-42" id="checkbox-42" class="custom" data-mini="true" value="Y" />
+<label for="checkbox-42">Potato Salad: $30.00</label>
+
+<label for="qtySide42" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+						<fieldset data-role="controlgroup">
+<input type="checkbox" name="checkbox-43" id="checkbox-43" class="custom" data-mini="true"  value="Y"/>
+<label for="checkbox-43">Collard Greens: $30.00</label>
+
+<label for="qtySide43" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+						
+					<legend>Dessert:</legend>	
+					<fieldset data-role="controlgroup">
+					<input type="checkbox" name="checkbox-43" id="checkbox-43" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-43">Pound Cake:$25.00</label>
+
+<label for="qtySide43" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset>
+					<fieldset data-role="controlgroup">	
+	<input type="checkbox" name="checkbox-44" id="checkbox-44" class="custom" data-mini="true" value="Y"/>
+<label for="checkbox-44">Cookies:$10.00</label>
+
+<label for="qtySide44" class="select" data-theme="d"data-mini="true" ></label>
+						<select name="qtySide" id="qtyside" data-theme="d" data-mini="true">
+						<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select></fieldset></center>
+
+
+						
+                    <h3 id="notification"></h3>
+                    <button data-theme="b" id="submit" type="submit">Submit</button>
+                </div>
+            </form>
+		
+
+	
+	    <div data-role="footer" data-theme="d" data-position="fixed">
+	<a href="index.html" class="ui-btn-left" data-direction="reverse" data-rel="back" data-inline="true">Back</a>
+</div>
+	
+</div>
+
+
+</body>
+</html>
